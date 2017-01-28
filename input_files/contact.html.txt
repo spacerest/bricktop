@@ -1,0 +1,6 @@
+<ul>
+<li>Hours: 8AM - 5PM Monday - Friday</li>
+<li>Phone: (802) 434-5090</li>
+<li>Fax: (802) 329-2144 </li>
+</ul>
+
