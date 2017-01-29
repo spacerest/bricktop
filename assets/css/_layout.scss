@@ -54,7 +54,6 @@ table{
     padding-left: 5px;
     padding-top: 2px;
     margin: 0;
-    background-color: #ff0;//rgba($color1, 0.8);
     h2.page-title {
 	color: $color6;
 	padding: 2px 0px 0px 0px;
@@ -321,20 +320,25 @@ nav.site-pages {
       margin-left: auto;
       margin-top: 30px;
       padding: 0;
-      max-width: 70%;
+      max-width: 90%;
       display: inline-block;
       float: left;
       font-family: $font8;
     h1 {
+      //https://www.colourbox.com/preview/2631241-shiny-yellow-leaf-gold-foil-texture-background.jpg
+      //http://www.theblogmarket.co/create-gold-foil-text-with-css/
       width: inherit;
       line-height: 1;
-      color: $color4;
+      color: rgba($color8, 0.2);
+      background: -o-linear-gradient(transparent, transparent);
+      background: -webkit-linear-gradient(transparent, transparent), url(file:///Users/sadieparker/git_st/bricktop/assets/images/gold-leaf.jpg);
+      -webkit-background-clip: text;
+      background-repeat: repeat;
      .up-title {
        font-weight: 400;
-       letter-spacing: 12px;
+       letter-spacing: 1px;
        text-transform: uppercase;
        font-size: $base-font-size * 6;
-       color: $color5;
      }
      .down-title {
        text-transform: uppercase;
@@ -536,7 +540,12 @@ td.program-highlight {
 
 .program-table {
   tr {
-      background-color: rgba($color7, 0.3);
+      background-color: rgba($color8, 0.2);
+      background: -o-linear-gradient(transparent, transparent);
+      background: -webkit-linear-gradient(transparent, transparent), url(file:///Users/sadieparker/git_st/bricktop/assets/images/gold-leaf.jpg);
+      //-webkit-background-clip: text;
+      background-repeat: repeat;
+      //background-color: rgba($color7, 0.3);
     td {
       text-align: center;
       font-family: $font8;
@@ -633,7 +642,7 @@ a {
 
 
 .home {
-  background-color: $color4;//$picture-mirror-hue;//lighten($grey-color, 40%);
+  background-color: $color5;//$picture-mirror-hue;//lighten($grey-color, 40%);
   }
 
 .page-heading {
