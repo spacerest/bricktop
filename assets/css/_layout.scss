@@ -22,6 +22,18 @@ table {
   }
 }
 
+.title-trigger {
+  tr {
+    td {
+      background-color: $color5;
+      h2 {
+      visibility: hidden;
+      }
+    }
+}
+}
+
+
 table{
   height: $nav-height;
   border-collapse: collapse;
@@ -59,40 +71,33 @@ table{
 }
 }
 
-
-
 table{
   height: $nav-height;
   border-collapse: collapse;
   .nav-table {
-
-  display: inline-block;
-  width: 100%;
-  tr {
+    display: inline-block;
     width: 100%;
-  td {
-    border: 1px solid rgba($color1,1);
-    font-size: $base-font-size * 1.5;
-    border-bottom: 0px solid rgba($color2, 0.2);
-    border-top: 0px solid #000;
-    padding: 0;
-    width: 25%;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-top: 2px;
-    margin: 0;
-    background-color: #ff0;//rgba($color1, 0.8);
-    a {
-      margin-top: 1px;
-      display: block;
-            width: 100%;
-    }
-  }
-  }
-}
-}
+    tr {
+      width: 100%;
+    td {
+      border: 1px solid rgba($color1,1);
+      font-size: $base-font-size * 1.5;
+      border-bottom: 0px solid rgba($color2, 0.2);
+      border-top: 0px solid #000;
+      padding: 0;
+      width: 25%;
+      padding-right: 5px;
+      padding-left: 5px;
+      padding-top: 2px;
+      margin: 0;
+      a {
+        margin-top: 1px;
+        display: block;
+              width: 100%;
+      }}}}}
 
 nav.site-pages {
+    background-color: rgba($text-color, 0.8);
     position: fixed;
     z-index: 3;
     .menu-icon {
@@ -191,7 +196,7 @@ nav.site-pages {
             height: 36px;
             line-height: 0;
 	    position: fixed;
-	    top: $header-height + 7px;
+	    top: $header-height + $nav-height;
 	    left: 10px; 
             text-align: center;
 	    color: $color1;
@@ -283,7 +288,7 @@ nav.site-pages {
       margin-right: auto;
       margin-top: 10px;
       img {
-	height: $header-height - 15px;
+	height: $header-height - ($nav-height/2);
       }
 
       @include media-query ($on-laptop){
@@ -292,7 +297,7 @@ nav.site-pages {
       margin-right: auto;
       margin-top: 10px;
       img {
-	height: $header-height - 15px;
+	height: $header-height - $nav-height;
 	min-width: 251px;
       }
       }
@@ -302,7 +307,7 @@ nav.site-pages {
       margin-right: auto;
       margin-top: 10px;
       img {
-	height: $header-height - 15px;
+	height: $header-height - $nav-height;
 	min-width: 100px;
       }
 
@@ -329,6 +334,7 @@ nav.site-pages {
        letter-spacing: 12px;
        text-transform: uppercase;
        font-size: $base-font-size * 6;
+       color: $color5;
      }
      .down-title {
        text-transform: uppercase;
@@ -372,6 +378,14 @@ nav.site-pages {
   }
 }
 
+.program-pic {
+  border: 2px solid red;
+  float: right;
+  height: 40px; 
+  img { 
+  }
+}
+
 .program-blurb {
   display: inline-block;
   text-align: right;
@@ -379,19 +393,19 @@ nav.site-pages {
 }
   
 .program-segment {
-  padding: 5px;
   display: inline-block;
 }
 
 .program-row {
   @extend %clearfix;
-  border-right: 1px solid darken($color3, 6%);
-  padding: 15px;
-  margin-top: 15px;
+}
+
+td.program-highlight {
+  background-color: rgba($color5, 0.5);
+  color: $color5;
 }
 
 .col-wrapper {
-    margin-left: -$spacing-unit / 2;
 }
 
 
@@ -505,8 +519,52 @@ nav.site-pages {
   margin: 0;
 }
 
+.stick {
+  position: fixed;
+  z-index: 2;
+  top: $header-height + $nav-height;
+}
+
+.stick-placeholder {
+  display: none;
+}
+
+.hold {
+  display: inline-block;
+  height: $nav-height;
+}
+
+.program-table {
+  tr {
+      background-color: rgba($color7, 0.3);
+    td {
+      text-align: center;
+      font-family: $font8;
+      text-transform: uppercase;
+      padding-top: 5px;
+      &:hover {
+	text-decoration: underline;
+      }
+      
+}}}
+
+td.program-highlight {
+  background-color: rgba($text-color, 0.3)!important;
+  color: $color5;
+}
+
+
+
 .programs-and-pricing {
-  .page-table {
+  .page-table.title-trigger {
+    .programs-and-pricing {
+      h2 {
+	visibility: visible;
+	color: $text-color;
+      }
+    }
+  }
+  .page-table.nav-trigger {
     .programs-and-pricing {
       background-color: $highlight-nav-td;
 	a {
@@ -515,7 +573,15 @@ nav.site-pages {
 }}}
 
 .resources {
-  .page-table {
+.page-table.title-trigger {
+    .resources {
+      h2 {
+	visibility: visible;
+	color: $text-color;
+      }
+    }
+  }
+  .page-table.nav-trigger {
     .resources {
       background-color: $highlight-nav-td;
 a {
@@ -524,7 +590,15 @@ a {
 }}}
 
 .stay-connected {
-  .page-table {
+  .page-table.title-trigger {
+    .stay-connected {
+      h2 {
+	visibility: visible;
+	color: $text-color;
+      }
+    }
+  }
+  .page-table.nav-trigger {
     .stay-connected {
       background-color: $highlight-nav-td;
 a {
@@ -532,10 +606,16 @@ a {
 	}
 }}}
 
-
-
 .index {
-  .page-table {
+  .page-table.title-trigger {
+    .index {
+      h2 {
+	visibility: visible;
+	color: $text-color;
+      }
+    }
+  }
+  .page-table.nav-trigger {
     .index {
       background-color: $highlight-nav-td;
 a {
