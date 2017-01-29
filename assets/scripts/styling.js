@@ -37,7 +37,7 @@ $(document).ready(function() {
     $()
  } 
   
-  headerExtra = $(window).height() * 0.39; 
+  headerExtra = $(window).height() * 0.39 - 7; 
 
 $('td.' + programIds[0]).click(function() {
    //optionally remove the 500 (which is time in milliseconds) of the

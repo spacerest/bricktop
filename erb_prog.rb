@@ -33,14 +33,14 @@ require 'erb'
     @programs_hash.each do |key, name|
       @program_pic_path = @image_path + key.to_s + ".png"
       @program_blurb_path = @input_files_path + "programs_info/" + key.to_s + ".html.txt" 
-      @programs_html += "<div id='#{key.to_s}' class='clear-fix program-row'><p class='col-1 program-blurb'>#{File.read(@program_blurb_path)}</p><div style='program-pic col-2'><img src='#{@program_pic_path}' style='height: 68vh;' /></div></div>"
+      @programs_html += "<div id='#{key.to_s}' class='clear-fix program-row'><div class='col-1'><p class='program-blurb'>#{File.read(@program_blurb_path)}</p></div><div class='col-2'><div style='program-pic'><img src='#{@program_pic_path}' style='height: 68vh;' /></div></div></div>"
     end
 
     @programs_html += '</div>'
     @page_content = @programs_html
 
   elsif File.exist?(@input_files_path + link + '.txt') 
-    @page_content = File.read(@input_files_path + link + '.txt') 
+    @page_content = "<div class='page-content'>#{File.read(@input_files_path + link + '.txt')}</div>"
 
   else
     File.new(link + '.txt','w+')

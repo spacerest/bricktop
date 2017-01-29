@@ -11,7 +11,15 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="./assets/scripts/styling.js"></script>
   <script type="text/javascript" src="./assets/scripts/jquery.scrollTo.min.js"></script>
-
+  <link rel="prefetch" href="./assets/images/gold-leaf.jpg">
+  <link rel="prefetch" href="./assets/images/cover_beni_hassan.jpg">
+  <style>
+    :root:before {
+      content: url(./assets/images/gold-leaf.jpg)
+	       url(./assets/images/cover_beni_hassan.jpg);
+      display: none;
+    }
+  </style>
  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Julius+Sans+One|Kumar+One|Monoton|Orbitron|Press+Start+2P|Russo+One|Syncopate|Ultra" rel="stylesheet"> 
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="shortcut icon" type="image/png" href="./assets/images/favicon.png">
@@ -56,8 +64,7 @@
       <tr>
          <% @nav_hash.each do |link, nav_item| %> 
 	  <td class="<%= link.split(".html")[0] %>">
-	
-          <a class="page-title" href="<%= link %>"><!--<img class="nav_img" src="./assets/images/<%= nav_item %>_button.png" />--><%= nav_item %></a>
+	    <a class="page-title" href="<%= link %>"><%= nav_item %></a>
 	  </td>
          <% end %> 
      </tr> 
@@ -73,7 +80,6 @@
 <div class="placeholder"></div>
 <div class="stick-placeholder"></div>
     <div class="home">
-    <div class="page-content">
     <!--div class="site-pages">
     <table class="page-table title-trigger">
       <tr>
@@ -90,7 +96,6 @@
 
 	</div>
       </div>
-    </div>
 
 <div class="feature_pic_footer small" style="background: #fff url('<%= @small_img_uri %>'); background-repeat: repeat; background-size: 1010px 229px;"> 
 <div class="feature_pic_footer" style="background-image: url('<%= @pic_one %>')">
